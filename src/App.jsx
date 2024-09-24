@@ -1,6 +1,6 @@
 
 import { Route, Router, Routes } from 'react-router-dom'
-import './App.scss'
+import './App.css'
 import HomePage from './pages/HomePage/HomePage'
 import CatalogPage from './pages/CatalogPage/CatalogPage'
 import CamperDetailsPage from './pages/CamperDetailsPage/CamperDetailsPage'

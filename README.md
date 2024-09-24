@@ -1,8 +1,18 @@
-# React + Vite
+TravelTrucks Frontend Application
+Overview
+This project is a frontend web application developed for the company TravelTrucks, which specializes in camper van rentals. The goal of the application is to provide users with an intuitive platform to browse available camper rentals, view detailed camper information, read customer reviews, and book their chosen camper.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Home Page: The main landing page that introduces the company and provides an overview of the available services.
+Catalog Page: A page displaying a list of all available campers for rent, fetched from the provided API. Users can apply filters to narrow down their search.
+Camper Detail Page: For each camper, there is a detailed page displaying its description, images, customer reviews, and a booking form.
+API Integration
+The application uses a provided backend API to fetch the necessary data for campers and their details. The main API endpoints used are:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+GET /campers: Retrieves a list of all available campers. It also allows filtering options to refine the results.
+GET /campers/
+: Retrieves the details of a specific camper by its ID.
+Technologies Used
+Frontend Framework: React
+Styling:CSS framework/library
+API Interaction: Axios or Fetch API is used for making HTTP requests.

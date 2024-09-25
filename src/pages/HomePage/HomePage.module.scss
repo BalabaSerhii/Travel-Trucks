@@ -1,5 +1,12 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
+.container {
+  background-image: url("/src/assets/img/backgroundImg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 1440px 696px;
+  height: 100vh;
+}
 
 // .test{
 // background-color: $background-color;

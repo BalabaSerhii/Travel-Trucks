@@ -1,0 +1,30 @@
+.button {
+  width: 166px;
+  height: 56px;
+  padding: 10px 30px;
+  border-radius: 200px;
+  cursor: pointer;
+  font-size: 16px;
+background-color: rgba(228, 72, 72, 1);
+color: rgba(255, 255, 255, 1);
+  transition: background-color 0.3s ease;
+  border-style: none;
+
+  &:hover {
+    background-color: rgba(216, 67, 67, 1);
+    
+  }
+
+  &:active {
+    background-color: rgba(64, 123, 255, 0.4);
+  }
+}
+
+
+
+// @media screen and (min-width: 768px) {
+//     .button {
+//       max-width: 160px;
+//       width: 100%;
+//     }
+//   }

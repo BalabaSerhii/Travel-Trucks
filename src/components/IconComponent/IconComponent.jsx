@@ -4,7 +4,7 @@ const IconComponent = ({
   id,
   width,
   height,
-  className = "",
+  className,
   fillColor,
   stroke: strokeCollor,
 }) => {
@@ -16,7 +16,7 @@ const IconComponent = ({
       height={height}
       aria-hidden="true"
     >
-      <use className={css.stroke} href={`${icon}#icon-${id}`} />
+      <use className={css.stroke} href={`${icon}#${id}`} />
     </svg>
   );
 };

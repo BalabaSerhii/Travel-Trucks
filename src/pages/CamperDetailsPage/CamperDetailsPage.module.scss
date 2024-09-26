@@ -1,0 +1,19 @@
+.camper-card{
+    &__image {
+        display: flex;
+        gap: 48px;
+    }
+
+    
+    &__img{
+   border-radius: 10px;
+    width: 292px;
+    height: 312px;
+    object-fit: cover;
+}
+
+.img{
+    width: 2000px;
+}
+
+}

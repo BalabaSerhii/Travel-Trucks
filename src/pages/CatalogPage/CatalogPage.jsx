@@ -7,9 +7,9 @@ function CatalogPage() {
   return (
     <div className={style.container}>
       <CamperCard />
-      <CamperDetailsPage/>
+      {/* <CamperDetailsPage/> */}
       <IconComponent id="lip0_12140_330" />
-      {/* <FilterForm/> */}
+      <FilterForm/>
     </div>
   );
 }

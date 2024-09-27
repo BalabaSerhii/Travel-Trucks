@@ -4,6 +4,7 @@ import styles from "./CamperDetailsPage.module.scss";
 import IconComponent from "../../components/IconComponent/IconComponent";
 import { fetchCamperById } from "../../api/campersAPI";
 import FormComponent from "../../components/FormComponent/FormComponent";
+import DetailsCamper from "../../components/DetailsCamper/DetailsCamper";
 
 function CamperDetailsPage() {
   const { id } = useParams();
@@ -16,7 +17,6 @@ function CamperDetailsPage() {
       try {
         const response = await fetchCamperById(id);
         setCamper(response.data);
-        console.log("🚀 ~ fetchData ~ setCamper:", response);
       } catch (err) {
         setError("Failed to fetch camper details");
       } finally {
@@ -60,14 +60,10 @@ function CamperDetailsPage() {
         })}
       </div>
       <p className={styles["camper-card__description"]}>{camper.description}</p>
-      <FormComponent/>
+      <FormComponent />
+      <DetailsCamper/>
     </div>
   );
 }
 
 export default CamperDetailsPage;
-
-
-
-
-

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import styles from "./FilterForm.module.scss";
 import IconComponent from "../IconComponent/IconComponent"; 
 

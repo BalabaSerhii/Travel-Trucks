@@ -60,8 +60,11 @@ function CamperDetailsPage() {
         })}
       </div>
       <p className={styles["camper-card__description"]}>{camper.description}</p>
-      <FormComponent />
+      <div className={styles.formDetailContainer}>
+
       <DetailsCamper/>
+      <FormComponent />
+      </div>
     </div>
   );
 }

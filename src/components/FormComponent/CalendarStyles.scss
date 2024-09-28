@@ -4,6 +4,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+   
   }
   
   .react-datepicker__header {
@@ -11,6 +12,8 @@
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 0;
     position: relative;
+    
+    
   }
   
   .react-datepicker__current-month {
@@ -68,9 +71,26 @@
   
   .react-datepicker__navigation {
     top: 15px;
+    
   }
   
   .react-datepicker__navigation-icon::before {
     border-color: #333;
   }
-  
+  .react-datepicker-wrapper{
+    width: 527px;
+    width: 100%;
+    display: flex;
+  }
+
+  .input-container{
+    padding: 0;
+    margin: 0;
+    
+  }
+ 
+ .react-datepicker__input-container{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+ }

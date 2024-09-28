@@ -1,11 +1,12 @@
 .form-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 641px;
+  min-height: 60px;
+  padding: 44px 57px;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .form-container h2 {
@@ -24,6 +25,7 @@
 .form-container input,
 .form-container textarea {
   width: 100%;
+  max-width: 527px;
   padding: 15px;
   margin-bottom: 20px;
   font-size: 1rem;
@@ -72,4 +74,21 @@
   cursor: not-allowed;
 }
 
+.input {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
 
+  textarea {
+    resize: none; 
+    height: 118px;
+ 
+
+  }
+}
+.btn  {
+  width: 166px;
+  height: 56px;
+  margin-left: auto;
+  margin-right: auto;
+}

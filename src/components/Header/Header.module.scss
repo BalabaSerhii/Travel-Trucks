@@ -6,13 +6,24 @@ $border-color: #e0e0e0;
 
 .header {
   display: flex;
-  justify-content: space-between;
+  gap: 35%;
   align-items: center;
   background-color: $background-color;
   padding: 10px 20px;
   border-bottom: 2px solid $border-color;
 
   .logo {
+  
+      .logoLink {
+        text-decoration: none;
+        color: inherit;
+        
+        &:hover {
+          opacity: 0.8; // Эффект при наведении
+        }
+      }
+    
+   
     h1 {
       font-size: 24px;
       font-weight: bold;

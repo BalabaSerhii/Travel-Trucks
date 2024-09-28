@@ -2,7 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import DatePicker from "react-datepicker";
 import * as Yup from "yup";
 import "react-datepicker/dist/react-datepicker.css";
-import styles from "./FormComponent.module.scss"; 
+import styles from "./FormComponent.module.scss";
 
 const FormComponent = () => {
   const validationSchema = Yup.object({
@@ -42,61 +42,71 @@ const FormComponent = () => {
         {({ setFieldValue, values, isValid, isSubmitting }) => (
           <Form>
             <div>
-              <Field
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Name*"
-                className={styles.input}
-              />
-              <ErrorMessage name="name" component="div" className={styles.error} />
-            </div>
+              <div className={styles.input}>
+                <Field
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Name*"
+                  className={styles.input}
+                />
+                <ErrorMessage
+                  name="name"
+                  component="div"
+                  className={styles.error}
+                />
+              </div>
 
-            <div>
-              <Field
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email*"
-                className={styles.input}
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className={styles.error}
-              />
-            </div>
+              <div className={styles.input}>
+                <Field
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email*"
+                  className={styles.input}
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className={styles.error}
+                />
+              </div>
 
-            <div>
-              <DatePicker
-                selected={values.date}
-                onChange={(val) => setFieldValue("date", val)}
-                dateFormat="dd/MM/yyyy"
-                minDate={today}
-                placeholderText="Booking date*"
-                
-              />
-              <ErrorMessage name="date" component="div" className={styles.error} />
-            </div>
+              <div className={styles.input}>
+                <DatePicker
+                  selected={values.date}
+                  onChange={(val) => setFieldValue("date", val)}
+                  dateFormat="dd/MM/yyyy"
+                  minDate={today}
+                  placeholderText="Booking date*"
+                />
+                <ErrorMessage
+                  name="date"
+                  component="div"
+                  className={styles.error}
+                />
+              </div>
 
-            <div>
-              <Field
-                as="textarea"
-                id="comment"
-                name="comment"
-                placeholder="Comment"
-                className={styles.input}
-              />
-              <ErrorMessage
-                name="comment"
-                component="div"
-                className={styles.error}
-              />
+              <div className={styles.input}>
+                <Field
+                  as="textarea"
+                  id="comment"
+                  name="comment"
+                  placeholder="Comment"
+                  className={styles.input}
+                />
+                <ErrorMessage
+                  name="comment"
+                  component="div"
+                  className={styles.error}
+                />
+              </div>
+              <div className={styles.btn}>
+                <button type="submit" disabled={!isValid || isSubmitting}>
+                  Send
+                </button>
+              </div>
             </div>
-
-            <button type="submit" disabled={!isValid || isSubmitting}>
-              Send
-            </button>
           </Form>
         )}
       </Formik>

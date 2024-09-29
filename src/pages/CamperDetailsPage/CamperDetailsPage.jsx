@@ -46,11 +46,11 @@ function CamperDetailsPage() {
       <span className={styles["camper-card__price"]}>€{camper.price}</span>
       <div className={styles["camper-card__meta"]}>
         <span>
-          <IconComponent id="Property 1=Default-1" height="16" width="16" /> 
+          <IconComponent id="icon-Rating" height="16" width="16" /> 
           {camper.rating}({camper.reviews.length}) Reviews
         </span>
         <span>
-          <IconComponent id="map" height="16" width="16" /> {camper.location}
+          <IconComponent id="Map" height="16" width="16" /> {camper.location}
         </span>
       </div>
       <div className={styles["camper-card__image"]}>

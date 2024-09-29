@@ -72,7 +72,6 @@ const CamperCard = ({ filters }) => {
 
   const filteredCampers = filterCampers(campers);
 
-  // Если фильтры активны, показываем все отфильтрованные автодома
   const campersToDisplay =
     filters.selectedEquipment.length > 0 || filters.selectedVehicleType
       ? filteredCampers
@@ -96,7 +95,7 @@ const CamperCard = ({ filters }) => {
                     onClick={() => handleLikeClick(camper.id)}
                   >
                     <IconComponent
-                      id="heart"
+                      id="heard"
                       height="26"
                       width="24"
                       fillColor={likedCampers[camper.id] ? "red" : "black"}

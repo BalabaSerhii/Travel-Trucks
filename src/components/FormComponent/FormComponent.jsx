@@ -31,8 +31,10 @@ const FormComponent = () => {
 
   return (
     <div className={styles["form-container"]}>
-      <h2>Book your campervan now</h2>
+      <div>
+        <h2>Book your campervan now</h2>
       <h3>Stay connected! We are always ready to help you.</h3>
+        </div>
 
       <Formik
         initialValues={initialValues}

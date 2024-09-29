@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./FilterForm.module.scss";
 import IconComponent from "../IconComponent/IconComponent";
 
+// eslint-disable-next-line react/prop-types
 const FilterForm = ({ onFilterChange }) => {
   const [selectedEquipment, setSelectedEquipment] = useState([]);
   const [selectedVehicleType, setSelectedVehicleType] = useState(null);

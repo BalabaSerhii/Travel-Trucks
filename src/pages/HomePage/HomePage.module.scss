@@ -1,15 +1,28 @@
-@import "../../styles/variables";
-
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: flex-start; 
   background-image: url("/src/assets/img/backgroundImg.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-size: 1440px 696px;
-  height: 100vh;
-
-  & h1, h2 {
+  background-position: center; 
+  height: 696px;
+  padding-left: 64px; 
+  
+  & h1,
+  h2,
+  button {
     color: white;
   }
 }
 
 
+.h1{
+  font-size: 48px;
+  margin: 0 0 24px 0;
+}
+
+.btnCont{
+  margin-bottom: 40px;
+}

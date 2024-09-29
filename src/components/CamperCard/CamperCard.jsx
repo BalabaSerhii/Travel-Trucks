@@ -7,7 +7,7 @@ import Features from "../Features/Features";
 
 const CamperCard = ({ filters }) => {
   const [campers, setCampers] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(4); // Для "Load more"
+  const [visibleCount, setVisibleCount] = useState(4); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [likedCampers, setLikedCampers] = useState({});
@@ -45,7 +45,6 @@ const CamperCard = ({ filters }) => {
   const filterCampers = (campers) => {
     const { selectedEquipment, selectedVehicleType } = filters;
 
-    // Если фильтры не выбраны, возвращаем полный список
     if (selectedEquipment.length === 0 && !selectedVehicleType) {
       return campers;
     }
@@ -133,7 +132,6 @@ const CamperCard = ({ filters }) => {
       ) : (
         <p>There's nothing here</p>
       )}
-      {/* Если нет активных фильтров, показываем кнопку "Load more" */}
       {filters.selectedEquipment.length === 0 &&
         !filters.selectedVehicleType && (
           <div className={styles.button}>

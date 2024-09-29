@@ -38,7 +38,7 @@ const FilterForm = ({ onFilterChange }) => {
 
   const vehicleTypes = [
     { id: "alcove", label: "Alcove", icon: "alcove" },
-    { id: "panelTruck", label: "Panel Truck", icon: "panelTruck" },
+    { id: "panelTruck", label: "Van", icon: "van" },
     { id: "fullyIntegrated", label: "Fully Integrated", icon: "full" },
   ];
 
@@ -80,7 +80,7 @@ const FilterForm = ({ onFilterChange }) => {
                   selectedEquipment.includes(feature.key) ? styles.selected : ""
                 }`}
               >
-                <IconComponent id={feature.svg} width="16" height="16" />
+                <IconComponent id={feature.svg} width="32" height="32" />
                 {feature.label}
               </button>
             ))}
@@ -88,7 +88,7 @@ const FilterForm = ({ onFilterChange }) => {
         </div>
 
         <div className={styles.section}>
-          <h4>Vehicle type</h4>
+          <h4 className={styles["section__h4"]}>Vehicle type</h4>
           <div className={styles.grid}>
             {vehicleTypes.map((type) => (
               <button
@@ -99,7 +99,7 @@ const FilterForm = ({ onFilterChange }) => {
                   selectedVehicleType === type.id ? styles.selected : ""
                 }`}
               >
-                <IconComponent id={type.icon} width="16" height="16" />
+                <IconComponent id={type.icon} width="32" height="32" />
                 {type.label}
               </button>
             ))}

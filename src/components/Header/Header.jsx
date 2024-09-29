@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.scss";
+import IconComponent from "../IconComponent/IconComponent";
 
 function Header() {
   return (
@@ -7,7 +8,7 @@ function Header() {
       <div className={styles.logo}>
         <NavLink to="/" className={styles.logoLink}>
           <h1>
-            Travel<span>Trucks</span>
+          <IconComponent id="Logo" height="16" width="136" />{" "}
           </h1>
         </NavLink>
       </div>

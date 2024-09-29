@@ -37,27 +37,27 @@ const DetailsCamper = () => {
       <h3>Vehicle details</h3>
       <ul className={styles["details-list"]}>
         <li>
-          <span className={styles["label"]}>Form:</span>
+          <span className={styles["label"]}>Form</span>
           <span className={styles["value"]}>{selectedCamper.form}</span>
         </li>
         <li>
-          <span className={styles["label"]}>Length:</span>
+          <span className={styles["label"]}>Length</span>
           <span className={styles["value"]}>{selectedCamper.length}</span>
         </li>
         <li>
-          <span className={styles["label"]}>Width:</span>
+          <span className={styles["label"]}>Width</span>
           <span className={styles["value"]}>{selectedCamper.width}</span>
         </li>
         <li>
-          <span className={styles["label"]}>Height:</span>
+          <span className={styles["label"]}>Height</span>
           <span className={styles["value"]}>{selectedCamper.height}</span>
         </li>
         <li>
-          <span className={styles["label"]}>Tank:</span>
+          <span className={styles["label"]}>Tank</span>
           <span className={styles["value"]}>{selectedCamper.tank}</span>
         </li>
         <li>
-          <span className={styles["label"]}>Consumption:</span>
+          <span className={styles["label"]}>Consumption</span>
           <span className={styles["value"]}>{selectedCamper.consumption}</span>
         </li>
       </ul>

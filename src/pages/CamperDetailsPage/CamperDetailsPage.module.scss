@@ -1,25 +1,80 @@
-.camper-card{
-    &__image {
-        display: flex;
-        gap: 48px;
-    }
+.camper-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
-    
-    &__img{
-   border-radius: 10px;
+  &__meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__image {
+    display: flex;
+    gap: 48px;
+  }
+
+  &__img {
+    border-radius: 10px;
     width: 292px;
     height: 312px;
     object-fit: cover;
-}
-.formDetailContainer{
+  }
+
+  &__list {
     display: flex;
-    justify-content: space-between;
-border: 1px solid red
+    gap: 40px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-top: 40px;
+    position: relative;
+    border-bottom: 1px solid #e5e7eb; /* Линия под списком */
+    padding-bottom: 12px;
 
-}
+    .camper-card__item {
+      position: relative;
+      padding-bottom: 8px;
 
-.img{
-    width: 2000px;
-}
+      .camper-card__item-link {
+        color: black;
+        text-decoration: none;
 
+        &:hover {
+          color: black;
+        }
+      }
+
+      /* Стили активного элемента */
+      .active {
+        font-weight: bold;
+        position: relative;
+        color: black;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -24px; /* Смещаем подчеркивание чуть ниже текста */
+          left: 0;
+          right: 0;
+          height: 5px;
+          background-color: red;
+        }
+      }
+    }
+  }
+
+  .formDetailContainer {
+    display: flex;
+    gap: 20px;
+  }
+
+  .features-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  // 
 }

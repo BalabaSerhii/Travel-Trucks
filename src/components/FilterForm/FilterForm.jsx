@@ -6,18 +6,39 @@ const FilterForm = ({ onFilterChange }) => {
   const [selectedEquipment, setSelectedEquipment] = useState([]);
   const [selectedVehicleType, setSelectedVehicleType] = useState(null);
 
-  const equipmentOptions = [
-    { id: "AC", label: "AC", icon: "bi_droplet" },
-    { id: "automatic", label: "Automatic", icon: "diagram" },
-    { id: "kitchen", label: "Kitchen", icon: "tv" },
-    { id: "TV", label: "TV", icon: "cup-hot" },
-    { id: "bathroom", label: "Bathroom", icon: "map" },
+  const features = [
+    {
+      key: "AC",
+      label: "AC",
+      svg: "ac",
+    },
+    {
+      key: "transmission",
+      label: "Automatic",
+      svg: "diagram",
+      value: "automatic",
+    },
+    {
+      key: "kitchen",
+      label: "Kitchen",
+      svg: "cup-hot",
+    },
+    {
+      key: "TV",
+      label: "TV",
+      svg: "tv",
+    },
+    {
+      key: "bathroom",
+      label: "Bathroom",
+      svg: "water",
+    },
   ];
 
   const vehicleTypes = [
-    { id: "van", label: "Van", icon: "van-icon" },
-    { id: "integrated", label: "Fully Integrated", icon: "integrated-icon" },
-    { id: "alcove", label: "Alcove", icon: "alcove-icon" },
+    { id: "alcove", label: "Alcove", icon: "alcove" },
+    { id: "panelTruck", label: "Panel Truck", icon: "panelTruck" },
+    { id: "fullyIntegrated", label: "Fully Integrated", icon: "full" },
   ];
 
   const handleEquipmentClick = (id) => {
@@ -49,17 +70,17 @@ const FilterForm = ({ onFilterChange }) => {
         <div className={styles.section}>
           <h4>Vehicle equipment</h4>
           <div className={styles.grid}>
-            {equipmentOptions.map((option) => (
+            {features.map((feature) => (
               <button
                 type="button"
-                key={option.id}
-                onClick={() => handleEquipmentClick(option.id)}
+                key={feature.key}
+                onClick={() => handleEquipmentClick(feature.key)}
                 className={`${styles.option} ${
-                  selectedEquipment.includes(option.id) ? styles.selected : ""
+                  selectedEquipment.includes(feature.key) ? styles.selected : ""
                 }`}
               >
-                <IconComponent id={option.icon} width="16" height="16" />{" "}
-                {option.label}
+                <IconComponent id={feature.svg} width="16" height="16" />
+                {feature.label}
               </button>
             ))}
           </div>
@@ -77,7 +98,7 @@ const FilterForm = ({ onFilterChange }) => {
                   selectedVehicleType === type.id ? styles.selected : ""
                 }`}
               >
-                <IconComponent id={type.icon} width="16" height="16" />{" "}
+                <IconComponent id={type.icon} width="16" height="16" />
                 {type.label}
               </button>
             ))}

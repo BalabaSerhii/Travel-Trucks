@@ -5,6 +5,7 @@ import IconComponent from "../../components/IconComponent/IconComponent";
 import { fetchCamperById } from "../../api/campersAPI";
 import FormComponent from "../../components/FormComponent/FormComponent";
 import DetailsCamper from "../../components/DetailsCamper/DetailsCamper";
+import CamperReviewsDetails from "../../components/CamperReviewsDetails/CamperReviewsDetails";
 
 function CamperDetailsPage() {
   const { id } = useParams();
@@ -61,9 +62,9 @@ function CamperDetailsPage() {
       </div>
       <p className={styles["camper-card__description"]}>{camper.description}</p>
       <div className={styles.formDetailContainer}>
-
-      <DetailsCamper/>
-      <FormComponent />
+        {/* <CamperReviewsDetails reviews={camper.reviews}/> */}
+        <DetailsCamper />
+        <FormComponent />
       </div>
     </div>
   );

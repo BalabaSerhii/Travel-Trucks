@@ -1,49 +1,48 @@
-import  { useState } from "react";
+import { useState } from "react";
 import styles from "./FilterForm.module.scss";
-import IconComponent from "../IconComponent/IconComponent"; 
+import IconComponent from "../IconComponent/IconComponent";
 
-const FilterForm = () => {
+const FilterForm = ({ onFilterChange }) => {
   const [selectedEquipment, setSelectedEquipment] = useState([]);
   const [selectedVehicleType, setSelectedVehicleType] = useState(null);
 
   const equipmentOptions = [
-    { id: "ac", label: "AC", icon: "bi_droplet" }, 
+    { id: "AC", label: "AC", icon: "bi_droplet" },
     { id: "automatic", label: "Automatic", icon: "diagram" },
     { id: "kitchen", label: "Kitchen", icon: "tv" },
-    { id: "tv", label: "TV", icon: "cup-hot" },
+    { id: "TV", label: "TV", icon: "cup-hot" },
     { id: "bathroom", label: "Bathroom", icon: "map" },
   ];
 
   const vehicleTypes = [
-    { id: "van", label: "Van", icon: "van-icon" }, 
+    { id: "van", label: "Van", icon: "van-icon" },
     { id: "integrated", label: "Fully Integrated", icon: "integrated-icon" },
     { id: "alcove", label: "Alcove", icon: "alcove-icon" },
   ];
 
   const handleEquipmentClick = (id) => {
-    setSelectedEquipment((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+    const updatedEquipment = selectedEquipment.includes(id)
+      ? selectedEquipment.filter((item) => item !== id)
+      : [...selectedEquipment, id];
+
+    setSelectedEquipment(updatedEquipment);
+    onFilterChange({
+      selectedEquipment: updatedEquipment,
+      selectedVehicleType,
+    });
   };
 
   const handleVehicleTypeClick = (id) => {
-    setSelectedVehicleType(id);
+    const updatedVehicleType = selectedVehicleType === id ? null : id;
+    setSelectedVehicleType(updatedVehicleType);
+    onFilterChange({
+      selectedEquipment,
+      selectedVehicleType: updatedVehicleType,
+    });
   };
 
   return (
     <form className={styles.form}>
-      
-      <div className={styles.location}>
-        <label htmlFor="location">Location</label>
-        <div className={styles.input}>
-          <span className={styles.icon}>
-            <IconComponent id="map" width="16" height="16" />{" "}
-            
-          </span>
-          <input id="location" type="text" value="Kyiv, Ukraine" readOnly />
-        </div>
-      </div>
-
       <div className={styles.filters}>
         <h3>Filters</h3>
 
@@ -79,7 +78,6 @@ const FilterForm = () => {
                 }`}
               >
                 <IconComponent id={type.icon} width="16" height="16" />{" "}
-                {/* Иконка */}
                 {type.label}
               </button>
             ))}

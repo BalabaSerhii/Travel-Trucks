@@ -1,0 +1,54 @@
+.review {
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    
+    &__header {
+      display: flex;
+      align-items: center;
+    }
+  
+    &__user {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+  
+    &__user_avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: rgba(242, 244, 247, 1);
+    }
+  
+    &__user_initial {
+      font-size: 20px;
+      font-weight: 600;
+      color: #e63946;
+    }
+  
+    &__user_name {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+  
+    &__rating {
+      display: flex;
+      gap: 4px;
+      margin-top: 4px;
+    }
+  
+    &__text {
+      font-size: 14px;
+      color: #634b4b;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+  

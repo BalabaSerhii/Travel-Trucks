@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchCamperById } from "../../store/campersSlice";
 import styles from "../DetailsCamper/DetailsCamper.module.scss";
+import Features from "../Features/Features";
 
 const DetailsCamper = () => {
   const { id } = useParams();
@@ -32,6 +33,7 @@ const DetailsCamper = () => {
 
   return (
     <div className={styles.detailsContainer}>
+      <Features camper={id} />
       <h3>Vehicle details</h3>
       <ul className={styles["details-list"]}>
         <li>

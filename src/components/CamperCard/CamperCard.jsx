@@ -3,12 +3,14 @@ import styles from "./CamperCard.module.scss";
 import IconComponent from "../IconComponent/IconComponent";
 import { fetchAllCampers } from "../../api/campersAPI";
 import { useNavigate } from "react-router-dom";
+import Features from "../Features/Features";
 
-const CamperCard = () => {
+const CamperCard = ({ filters }) => {
   const [campers, setCampers] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(4);
+  const [visibleCount, setVisibleCount] = useState(4); // Для "Load more"
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [likedCampers, setLikedCampers] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,67 +35,113 @@ const CamperCard = () => {
     navigate(`/catalog/${id}`);
   };
 
+  const handleLikeClick = (id) => {
+    setLikedCampers((prevLikes) => ({
+      ...prevLikes,
+      [id]: !prevLikes[id],
+    }));
+  };
+
+  const filterCampers = (campers) => {
+    const { selectedEquipment, selectedVehicleType } = filters;
+
+    // Если фильтры не выбраны, возвращаем полный список
+    if (selectedEquipment.length === 0 && !selectedVehicleType) {
+      return campers;
+    }
+
+    return campers.filter((camper) => {
+      const matchesVehicleType = selectedVehicleType
+        ? camper.form === selectedVehicleType
+        : true;
+
+      const matchesEquipment = selectedEquipment.every(
+        (equipment) => camper[equipment]
+      );
+
+      return matchesVehicleType && matchesEquipment;
+    });
+  };
+
   if (loading) {
     return <p>Wait a little...</p>;
   }
   if (error) {
     return <p>{error}</p>;
   }
+
+  const filteredCampers = filterCampers(campers);
+
+  // Если фильтры активны, показываем все отфильтрованные автодома
+  const campersToDisplay =
+    filters.selectedEquipment.length > 0 || filters.selectedVehicleType
+      ? filteredCampers
+      : filteredCampers.slice(0, visibleCount);
+
   return (
-    <div className={styles["camper-card"]}>
-      <div className={styles["camper-card__content"]}>
-        {campers && campers.length > 0 ? (
-          campers.slice(0, visibleCount).map((camper) => (
-            <div key={camper.id} className={styles["camper-card__content"]}>
-              <h2>{camper.name}</h2>
-              <span className={styles["camper-card__price"]}>
-                €{camper.price}
-              </span>
-              <div className={styles["camper-card__meta"]}>
+    <section className={styles["camper-card"]}>
+      {campersToDisplay && campersToDisplay.length > 0 ? (
+        campersToDisplay.map((camper) => (
+          <article key={camper.id} className={styles["camper-card__content"]}>
+            <figure className={styles["camper-card__image"]}>
+              <img src={camper.gallery[0].thumb} alt={camper.name} />
+            </figure>
+            <div className={styles["camper-card__info"]}>
+              <header className={styles["camper-card__header"]}>
+                <h2>{camper.name}</h2>
+                <span className={styles["camper-card__header__price"]}>
+                  €{camper.price}
+                  <button
+                    className={styles["camper-card__header__btn"]}
+                    onClick={() => handleLikeClick(camper.id)}
+                  >
+                    <IconComponent
+                      id="heart"
+                      height="26"
+                      width="24"
+                      fillColor={likedCampers[camper.id] ? "red" : "black"}
+                    />
+                  </button>
+                </span>
+              </header>
+              <section className={styles["camper-card__meta"]}>
                 <span>
-                  <IconComponent
-                    id="Property 1=Default-1"
-                    height="16"
-                    width="16"
-                  />{" "}
-                  {camper.rating}({camper.reviews.length}) Reviews
+                  <IconComponent id="icon-Rating" height="16" width="16" />{" "}
+                  {camper.rating} ({camper.reviews.length}) Reviews
                 </span>
                 <span>
-                  <IconComponent id="map" height="16" width="16" />{" "}
+                  <IconComponent id="Map" height="16" width="16" />{" "}
                   {camper.location}
                 </span>
-              </div>
+              </section>
               <p className={styles["camper-card__description"]}>
                 {camper.description}
               </p>
-              <div className={styles["camper-card__features"]}>
-                <span className={styles.feature}>
-                  <IconComponent id="diagram" height="20" width="20" />
-                  Automatic
-                </span>
-                <span className={styles.feature}>Petrol</span>
-                <span className={styles.feature}>Kitchen</span>
-                <span className={styles.feature}>AC</span>
+              <section>
+                <Features camper={camper} />
+              </section>
+              <footer>
                 <button
                   className={styles["camper-card__button"]}
                   onClick={() => showCamperDetails(camper.id)}
                 >
                   Show more
                 </button>
-              </div>
-              <div className={styles["camper-card__image"]}>
-                <img src={camper.gallery[0].thumb} alt={camper.name} />
-              </div>
+              </footer>
             </div>
-          ))
-        ) : (
-          <p>There's nothing here</p>
+          </article>
+        ))
+      ) : (
+        <p>There's nothing here</p>
+      )}
+      {/* Если нет активных фильтров, показываем кнопку "Load more" */}
+      {filters.selectedEquipment.length === 0 &&
+        !filters.selectedVehicleType && (
+          <div className={styles.button}>
+            <button onClick={loadMoreCampers}>Load more</button>
+          </div>
         )}
-      </div>
-      <div className={styles.button}>
-        <button onClick={loadMoreCampers}>Load more</button>
-      </div>
-    </div>
+    </section>
   );
 };
 

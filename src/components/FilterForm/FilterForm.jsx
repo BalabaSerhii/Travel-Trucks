@@ -106,9 +106,9 @@ const FilterForm = ({ onFilterChange }) => {
           </div>
         </div>
 
-        <div className={styles.searchButton}>
+        {/* <div className={styles.searchButton}>
           <button type="submit">Search</button>
-        </div>
+        </div> */}
       </div>
     </form>
   );
